@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-y:hidden;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>YouLink</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/youlink-favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-storage.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+
+
+</head>
+
+<body style="height: 100vh;background-color:yellow;">
+
+    <!-- Start your project here-->
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-expand-lg navbar-light white  scrolling-navbar">
+        <div class="container">
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="" target="_blank">
+
+                <!--按下回到porfolio-->
+                <strong>YouLink</strong>
+            </a>
+
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- Left -->
+                <ul class="navbar-nav mr-auto">
+
+
+                </ul>
+
+                <!-- Right -->
+                <ul class="navbar-nav nav-flex-icons">
+                    <!--個人profile+設定-->
+                    <li class="nav-item">
+                        <a href="" class="nav-link " target="_blank">
+                            <i class="fas fa-user mr-2"></i>
+                        </a>
+                    </li>
+                    <!--好友列表icon，一個icon，提醒選人(modal)，好友列表+好友貼文，點頭像即顯示好友profile(用ajax寫改profile article部分就好)-->
+                    <li class="nav-item">
+                        <a href="" class="nav-link " target="_blank">
+                            <i class="fas fa-users mr-2"></i>
+                        </a>
+                    </li>
+                    <!--每日好友推薦-->
+                    <li class="nav-item">
+                        <a href="../DailyRecommendedCards/index.html" class="nav-link " target="_blank">
+                            <i class="fas fa-user-plus mr-2"></i>
+                        </a>
+                    </li>
+                    <!--聊天室 icon-->
+                    <li class="nav-item">
+                        <a href="../ChatRoom/index.html" class="nav-link " target="_blank">
+                            <i class="fas fa-comments mr-2"></i>
+                        </a>
+                    </li>
+
+                    <!--廣告投放列表 icon-->
+                    <li class="nav-item">
+                        <a href="" data-toggle="modal" data-target="#admodal" class="nav-link " target="_blank">
+                            <i class="fas fa-ad mr-2"></i>
+                        </a>
+                    </li>
+
+                    <!--總收益 icon(這邊用modal做，有時間可以做明細紀錄)-->
+                    <li class="nav-item">
+                        <a href="" data-toggle="modal" data-target="#totalrevenue" class="nav-link " target="_blank">
+                            <i class="fas fa-file-invoice-dollar mr-2"></i>
+                        </a>
+                    </li>
+                    <!--登出-->
+                    <li class="nav-item">
+                        <a href="../LandingPage/index.html" class="nav-link border border-light rounded" target="_blank">
+                            <i class="fas fa-sign-out-alt mr-2"></i>登出
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+    <!-- Navbar -->
+
+
+    <!-- Full Page Intro -->
+    <!-- <div class=" " style="background-color:rebeccapurple; height:200px;">
+ -->
+
+    </div>
+    <!-- Full Page Intro -->
+
+    <!--Main layout-->
+    <main>
+        <div class="container" style="overflow:hidden;">
+
+            <!--Section: Main info-->
+            <section class="mt-5 wow fadeIn">
+
+                <!--Grid row-->
+                <div class="row" style="margin-top: 63.6px;">
+
+                    <!--Grid column-->
+                    <div class="col-md-3 mb-4" style="background-color:rgb(184, 173, 173);height:100vh;">
+
+
+                    </div>
+                    <!--Grid column-->
+
+                    <!--article content-->
+                    <!--Grid column-->
+                    <div class="col-md-6 mb-4">
+                        <!--personal profile-->
+
+
+                        <!-- end personal profile-->
+                    </div>
+                    <!--Grid column-->
+                    <!--article content-->
+
+                    <!--Grid column-->
+                    <div class="col-md-3 mb-4" style="background-color:rgb(184, 173, 173);height:100vh;">
+
+                    </div>
+                    <!--Grid row-->
+
+            </section>
+            <!--Section: Main info-->
+
+            <hr class="my-5">
+
+            <!--廣告投放列表modal-->
+            <div class="modal fade " id="admodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-notify modal-info" role="document">
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header info-color ">
+                            <h4 class="modal-title  white-text" id="myModalLabel">廣告投放列表</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+                        </div>
+                        <!--Body-->
+                        <div class="modal-body">
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>排序</th>
+                                        <th>廠商名稱</th>
+                                        <th>分潤回饋</th>
+                                        <th>勾選</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Product 1</td>
+                                        <td>100$</td>
+                                        <td>
+                                            <!-- checkbox unchecked -->
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked1">
+                                                <label class="custom-control-label" for="defaultUnchecked1"></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Product 2</td>
+                                        <td>100$</td>
+                                        <td>
+                                            <!-- checkbox unchecked -->
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked2">
+                                                <label class="custom-control-label" for="defaultUnchecked2"></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Product 3</td>
+                                        <td>100$</td>
+                                        <td>
+                                            <!-- checkbox unchecked -->
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked3">
+                                                <label class="custom-control-label" for="defaultUnchecked3"></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Product 4</td>
+                                        <td>100$</td>
+                                        <td>
+                                            <!-- checkbox unchecked -->
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked4">
+                                                <label class="custom-control-label" for="defaultUnchecked4"></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="total">
+                                        <th scope="row"></th>
+                                        <td>Total</td>
+                                        <td>400$</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!--Footer-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                            <!--按下checkout，資料傳到後端加總總分潤金額-->
+                            <button class="btn btn-primary">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end 廣告投放列表modal-->
+
+            <!--總收益modal-->
+            <div class="modal fade" id="totalrevenue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-notify modal-info" role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <p class="heading lead">總廣告收益</p>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true" class="white-text">&times;</span>
+      </button>
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <i class="fas fa-search-dollar fa-4x mb-3 animated rotateIn"></i>
+                                <h1>$ 5420</h1>
+
+
+                            </div>
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer justify-content-center">
+                            <!--明細-->
+                            <a type="button" class=" btn btn-outline-primary waves-effect" data-dismiss="modal">Check detail
+                            </a>
+                        </div>
+                    </div>
+                    <!--/.Content-->
+                </div>
+            </div>
+            <!--end 總收益modal-->
+
+
+
+            <!-- End your project here-->
+
+            <!-- jQuery -->
+            <script type="text/javascript" src="js/jquery.min.js"></script>
+            <!-- Bootstrap tooltips -->
+            <script type="text/javascript" src="js/popper.min.js"></script>
+            <!-- Bootstrap core JavaScript -->
+            <script type="text/javascript" src="js/bootstrap.min.js"></script>
+            <!-- MDB core JavaScript -->
+            <script type="text/javascript" src="js/mdb.min.js"></script>
+            <!-- Your custom scripts (optional) -->
+            <script type="text/javascript"></script>
+            </div>
+</body>
+
+</html>

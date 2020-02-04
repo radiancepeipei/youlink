@@ -36,3 +36,8 @@ $("#btn-login").click(function() {
     }
 
 });
+
+
+$("#btn-logout").click(function() {
+    firebase.auth().signOut();
+});

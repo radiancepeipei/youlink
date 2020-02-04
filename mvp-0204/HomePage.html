@@ -36,27 +36,20 @@
     <!-- Start your project here-->
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-expand-lg navbar-light white  scrolling-navbar">
-        <div class="container">
-
+        <div class="container-fluid">
             <!-- Brand -->
             <a class="navbar-brand" href="" target="_blank">
-
                 <!--按下回到porfolio-->
                 <strong>YouLink</strong>
             </a>
-
             <!-- Collapse -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
             <!-- Links -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                 <!-- Left -->
                 <ul class="navbar-nav mr-auto">
-
-
                 </ul>
 
                 <!-- Right -->
@@ -67,7 +60,7 @@
                             <i class="fas fa-user mr-2"></i>
                         </a>
                     </li>
-                    <!--好友列表icon，一個icon，提醒選人(modal)，好友列表+好友貼文，點頭像即顯示好友profile(用ajax寫改profile article部分就好)-->
+                    <!--好友列表icon-->
                     <li class="nav-item">
                         <a href="" class="nav-link " target="_blank">
                             <i class="fas fa-users mr-2"></i>
@@ -101,7 +94,7 @@
                     </li>
                     <!--登出-->
                     <li class="nav-item">
-                        <a href="../LandingPage/index.html" class="nav-link border border-light rounded" target="_blank">
+                        <a id="btn-logout">
                             <i class="fas fa-sign-out-alt mr-2"></i>登出
                         </a>
                     </li>
@@ -112,7 +105,6 @@
         </div>
     </nav>
     <!-- Navbar -->
-
 
     <!-- Full Page Intro -->
     <!-- <div class=" " style="background-color:rebeccapurple; height:200px;">
@@ -303,6 +295,18 @@
             <script type="text/javascript" src="js/mdb.min.js"></script>
             <!-- Your custom scripts (optional) -->
             <script type="text/javascript"></script>
+            <script src="js/main.js"></script>
+
+
+
+
+            <script>
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if (!user) {
+                        window.location.href = "/LandingPage.html";
+                    }
+                });
+            </script>
             </div>
 </body>
 

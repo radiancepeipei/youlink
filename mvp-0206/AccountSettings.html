@@ -19,6 +19,7 @@
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/uploadid.css">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
@@ -56,9 +57,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left -->
                 <ul class="navbar-nav mr-auto">
-                    <div class="profile-picture small-profile-picture">
-                        <img width="40px" alt="Anne Hathaway picture" src="https://media.bastillepost.com/wp-content/uploads/hongkong/2019/10/20191011_EN_%E7%A7%80%E6%99%BA03.jpg">
-                    </div>
                 </ul>
 
                 <!-- Right -->
@@ -115,9 +113,6 @@
     </nav>
     <!-- Navbar -->
 
-    <!-- Full Page Intro -->
-    <!-- <div class=" " style="background-color:rebeccapurple; height:200px;">
- -->
 
     </div>
     <!-- Full Page Intro -->
@@ -130,27 +125,171 @@
             <section class="mt-5 wow fadeIn">
 
                 <!--Grid row-->
-                <div class="row" style="margin-top: 63.6px;">
+                <div class="row" style="margin-top: 60px;">
                     <!--Grid column-->
                     <div class="col-4" style="background-color:rgb(24, 111, 250);height:100vh;padding:0;">
-                        <section class="friendsList">
-                            <nav class="navbar navbar-default" style="background-color:rgb(155, 132, 255); ;padding:15px;">
-                                <ul class="fnav " style="padding: 0;margin-bottom:0;">
-                                    <li><a href="" style="padding-right:5px;">好友列表</a></li>
-                                    <li><a href="">Message</a></li>
 
-                                </ul>
-                            </nav>
-                        </section>
+                        <!--big profile picture-->
+                        <div class="profile-picture big-profile-picture clear">
+                            <img width="150px" alt="" src="https://media.bastillepost.com/wp-content/uploads/hongkong/2019/10/20191011_EN_%E7%A7%80%E6%99%BA03.jpg">
+                        </div>
+
+                        <form id="profileSetting" style="margin-top:20px ;" action="">
+                            <!-- <div class="row" style="width: 90%;margin:0px auto;">
+                                <div class="col" style="padding:0px;padding-right:5px;">
+                                    <div class="group">
+                                        <input id="firstname" type="text" class="form-control" placeholder="名字">
+                                        <span class="hightlight"></span>
+                                        <span class="bar"></span>
+                                    </div>
+                                </div>
+                                <div class="col" style="padding:0px;">
+                                    <div class="group">
+                                        <input id="lastname" type="text" class="form-control" placeholder="姓氏">
+                                        <span class="hightlight"></span>
+                                        <span class="bar"></span>
+
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                            <div class="row" style="width: 90%;margin:0px auto;margin-top:20px;">
+                                <div class="col" style="padding:0px;padding-right:5px;">
+                                    <div class="group">
+                                        <input id="name" type="text" class="form-control" placeholder="姓名">
+                                        <span class="hightlight"></span>
+                                        <span class="bar"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="width: 90%;margin:0px auto;margin-top:20px;">
+                                <select name="" id="gender" class="form-control">
+                                    <option value=""disabled selected >生理性別</option>
+                                    <option value="male">男性</option>
+                                    <option value="female">女性</option>
+                                </select>
+                            </div>
+
+                            <div class="row" style="width: 90%;margin:0px auto;margin-top:20px;">
+                                <div class="col" style="padding:0px;padding-right:5px;">
+                                    <div class="group">
+                                        <input id="phone" type="text" class="form-control" placeholder="手機號碼">
+                                        <span class="hightlight"></span>
+                                        <span class="bar"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="width: 90%;margin:0px auto;margin-top:20px;">
+                                <div class="col" style="padding:0px;padding-right:5px;">
+                                    <div class="group">
+                                        <input id="career" type="text" class="form-control" placeholder="職業">
+                                        <span class="hightlight"></span>
+                                        <span class="bar"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="width: 90%;margin:0px auto;margin-top:20px;">
+
+                                <select name="" id="city" class="form-control">
+                                    <option value=""disabled selected >居住城市</option>
+                                    <option value="Taipei">台北市</option>
+                                    <option value="New Taipei">新北市</option>
+                                </select>
+                            </div>
+
+                            <div class="row" style="width: 90%;margin:0px auto;margin-top:20px;">
+                                <div class="col" style="padding:0px;padding-right:5px;">
+                                    <div class="group">
+                                        <input id="bio" type="text" class="form-control" placeholder="介紹">
+                                        <span class="hightlight"></span>
+                                        <span class="bar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button id="btn-update" type="submit" class="btn btn-primary pull-right">Upload</button>
+                                </div>
+                            </div>
+
+                        </form>
                         <!--Grid column-->
                     </div>
                     <div class="col-8 " style="background-color:rgb(224, 138, 171);height:100vh; ">
 
-                        <!--tinder cards start-->
+                        <!-- <div class="file-upload-wrapper">
+                            <input type="file" id="input-file-now" class="file-upload" />
+                        </div> -->
 
+                        <!--upload id card-->
+                        <!-- <section>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label"></label>
+                                                <div class="preview-zone hidden">
+                                                    <div class="box box-solid">
+                                                        <div class="box-header with-border" style="padding: 20px;">
+                                                            <div><b></b></div>
+                                                            <div class="box-tools pull-right">
+                                                                <button type="button" class="btn remove-preview" style="margin: 0px;padding:0px;border:none;">
+                                                <i class="fa fa-times"></i> 
+                                              </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="box-body"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropzone-wrapper">
+                                                    <div class="dropzone-desc">
+                                                        <i class="glyphicon glyphicon-download-alt"></i>
+                                                        <p>Upload your ID cover here.</p>
+                                                    </div>
+                                                    <input type="file" name="img_logo" class="dropzone">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"></label>
+                                                <div class="preview-zone hidden">
+                                                    <div class="box box-solid">
+                                                        <div class="box-header with-border" style="padding: 20px;">
+                                                            <div><b></b></div>
+                                                            <div class="box-tools pull-right">
+                                                                <button type="button" class="btn remove-preview" style="margin: 0px;padding:0px;border:none;">
+                                                <i class="fa fa-times"></i> 
+                                              </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="box-body"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropzone-wrapper">
+                                                    <div class="dropzone-desc">
+                                                        <i class="glyphicon glyphicon-download-alt"></i>
+                                                        <p>Upload your ID back here.</p>
+                                                    </div>
+                                                    <input type="file" name="img_logo" class="dropzone">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <!--tinder cards end-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-primary pull-right">Upload</button>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </form>
+                        </section>-->
 
+                        <script src="assets/app.js"></script>
 
 
                     </div>
@@ -320,19 +459,15 @@
                         if (snapshot.val()) {
                             window.location.href = "HomePage.html"
 
-                        } else {
-                            window.location.href = "AccountSettings.html"
-
                         }
 
                     })
                 }
-
             });
             //make auth and firestore reference
             const auth = firebase.auth();
         </script>
-        </div>
+
 </body>
 
 </html>

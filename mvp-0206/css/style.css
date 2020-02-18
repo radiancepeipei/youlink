@@ -1,5 +1,3 @@
-
-
 html,
 body,
 header,
@@ -56,4 +54,56 @@ header,
 
 .page-footer {
     background-color: #1C2331;
+}
+
+.fnav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.fnav li {
+    display: inline;
+}
+
+.fnav a {
+    color: white;
+}
+
+.profile-picture {
+    border-radius: 100%;
+    overflow: hidden;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.big-profile-picture {
+    margin: 0 auto;
+    border: 5px solid #50597b;
+    width: 150px;
+    height: 150px;
+}
+
+.small-profile-picture {
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+
+.small-profile-picture img {
+    vertical-align: middle;
+}
+
+.big-profile-picture {
+    margin: 0 auto;
+    margin-top: 5%;
+    border: none;
+    width: 150px;
+    height: 150px;
+}
+
+.big-profile-picture img {
+    width: 170px;
+    height: auto;
 }

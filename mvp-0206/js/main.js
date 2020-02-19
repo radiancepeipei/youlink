@@ -11,8 +11,34 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
+var db = firebase.database()
 
 firebase.auth.Auth.Persistence.LOCAL
+
+//var usersDataRef = new firebase('https://mvp-web-youlink.firebaseio.com/')
+
+$(document).ready(function() {
+    var userRef = firebase.database().ref('/users/') //資料庫位址
+    $('#btn-profile-set').on('click', function() {
+        var name = $('#name').val()
+        var age = $('#age').val()
+        var gender = $('#select-gender').val()
+        var phone = $('#phone').val()
+        var job = $('#job').val()
+        var city = $('#select-city').val()
+        var bio = $('#bio').val()
+        console.log(bio)
+        userRef.push({
+            age: age,
+            bio: bio,
+            city: city,
+            gender: gender,
+            job: job,
+            name: name,
+            phone: phone
+        })
+    })
+})
 
 $('#btn-login').click(function() {
     var email = $('#email').val()
@@ -81,53 +107,6 @@ $('#btn-resetPassword').click(function() {
                 console.log(errorMessage)
                 window.alert('Message:' + errorMessage)
             })
-    }
-})
-
-//update profile setting
-$('#btn-update').click(function() {
-    var name = $('#name').val()
-    var gender = $('#gender').val()
-    var phone = $('#phone').val()
-    var career = $('#career').val()
-    var city = $('#city').val()
-    var bio = $('#bio').val()
-
-    var rootRef = firebase
-        .database()
-        .ref()
-        .child('Users')
-    var userID = firebase.auth().currentUser.uid
-    var userRef = roomRef.child(userID)
-    if (
-        name != '' &&
-        gender != '' &&
-        phone != '' &&
-        career != '' &&
-        city != '' &&
-        bio != ''
-    ) {
-        var userData = {
-            name: name,
-            gender: gender,
-            phone: phone,
-            career: career,
-            city: city,
-            bio: bio
-        }
-        userRef.set(userData, function(error) {
-            if (error) {
-                var errorCode = error.code
-                var errorMessage = error.message
-                console.log(errorCode)
-                console.log(errorMessage)
-                window.alert('Message' + errorMessage)
-            } else {
-                window.location.href = 'HomePage.html'
-            }
-        })
-    } else {
-        window.alert('Form is incomplete. Please fill out all fields.')
     }
 })
 

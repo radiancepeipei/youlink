@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="css/uploadid.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
@@ -30,11 +31,6 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
-
-
-
-
-
 
 </head>
 
@@ -129,12 +125,17 @@
                     <!--Grid column-->
                     <div class="col-4" style="background-color:rgb(24, 111, 250);height:100vh;padding:0;">
 
-                        <!--big profile picture-->
-                        <div class="profile-picture big-profile-picture clear">
-                            <img width="150px" alt="" src="https://media.bastillepost.com/wp-content/uploads/hongkong/2019/10/20191011_EN_%E7%A7%80%E6%99%BA03.jpg">
+                        <!--  avatar img -->
+                        <div class="avatar-wrapper">
+                            <img class="profile-pic" src="" />
+                            <div class="upload-button">
+                                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                            </div>
+                            <input class="file-upload" type="file" accept="image/*" />
                         </div>
+                        <!-- end avatar img -->
 
-                        <form id="profileSetting" style="margin-top:20px ;" action="">
+                        <form id="profileSetting" style="margin-top:10px ;" action="">
                             <div class="row" style="width: 90%;margin:0px auto;">
                                 <div class="col" style="padding:0px;padding-right:5px;">
                                     <div class="group">
@@ -269,11 +270,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                                        </div>
-                                    </div> 
+                                  
                                 </div>
                             </form>
                         </section>-->

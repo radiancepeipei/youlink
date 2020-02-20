@@ -15,10 +15,30 @@ var db = firebase.database()
 
 firebase.auth.Auth.Persistence.LOCAL
 
-//var usersDataRef = new firebase('https://mvp-web-youlink.firebaseio.com/')
-
 $(document).ready(function() {
     var userRef = firebase.database().ref('/users/') //資料庫位址
+        /*start upload avatar*/
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader()
+
+            reader.onload = function(e) {
+                $('.profile-pic').attr('src', e.target.result)
+            }
+
+            reader.readAsDataURL(input.files[0])
+        }
+    }
+
+    $('.file-upload').on('change', function() {
+        readURL(this)
+    })
+
+    $('.upload-button').on('click', function() {
+            $('.file-upload').click()
+        })
+        /*end upload avatar*/
+
     $('#btn-profile-set').on('click', function() {
         var name = $('#name').val()
         var age = $('#age').val()
@@ -37,6 +57,8 @@ $(document).ready(function() {
             name: name,
             phone: phone
         })
+
+        window.location.href = '/HomePage.html'
     })
 })
 

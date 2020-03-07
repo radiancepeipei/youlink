@@ -1,34 +1,28 @@
+// 程式路口檔案(初始化vue instance，並import需要的外掛及公共元件)
 import Vue from 'vue'
+import vuetify from './plugins/vuetify'
 import App from './App.vue'
+import * as firebase from 'firebase'
 import router from './router'
 import store from './store'
-import firebase from 'firebase'
 
+import Vuelidate from 'vuelidate'
 Vue.config.productionTip = false
-let app = '' //initialize app
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-        apiKey: 'AIzaSyCYHGcRPI0l8ZAt8rp-WIfNq6nZCs3Ef8c',
-        authDomain: 'mvp-vue-web.firebaseapp.com',
-        databaseURL: 'https://mvp-vue-web.firebaseio.com',
-        projectId: 'mvp-vue-web',
-        storageBucket: 'mvp-vue-web.appspot.com',
-        messagingSenderId: '753210791220',
-        appId: '1:753210791220:web:423cd64438fe4e5f6c0161',
-        measurementId: 'G-BSG09880N3'
+Vue.config.devtools = false
+Vue.config.debug = false
+Vue.use(Vuelidate)
+new Vue({
+    router, // root router
+    store,
+    vuetify,
+    render: h => h(App),
+    created() {
+        firebase.initializeApp({
+            apiKey: 'AIzaSyCYHGcRPI0l8ZAt8rp-WIfNq6nZCs3Ef8c',
+            authDomain: 'mvp-vue-web.firebaseapp.com',
+            databaseURL: 'https://mvp-vue-web.firebaseio.com',
+            projectId: 'mvp-vue-web',
+            storageBucket: 'mvp-vue-web.appspot.com'
+        })
     }
-    // Initialize Firebase
-firebase.initializeApp(firebaseConfig)
-firebase.analytics()
-
-firebase.auth().onAuthStateChanged(() => {
-    if (!app) {
-        //initialize view instance after firebase already
-        app = new Vue({
-            router,
-            store,
-            render: h => h(App)
-        }).$mount('#app')
-    }
-})
+}).$mount('#app')

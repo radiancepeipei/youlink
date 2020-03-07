@@ -1,4 +1,4 @@
-# mvp-vue-web
+# mvp-vuetify-web-2
 
 ## Project setup
 ```
